@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Janatha Decors | Premium Interior Design Solutions</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .hero-slider {
+      transition: background-image 1.5s ease-in-out;
+    }
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    .testimonial-slider {
+      scroll-behavior: smooth;
+    }
+    .gallery-item {
+      overflow: hidden;
+    }
+    .gallery-item img {
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+  <!-- Header with transparent background when at top -->
+  <header id="main-header" class="fixed w-full z-40 transition-all duration-300 bg-transparent">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <h1 class="text-3xl font-bold text-white drop-shadow-md">
+          <span class="text-blue-500">Janatha</span> Decors
+        </h1>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="index.html" class="text-white hover:text-blue-400 font-medium transition duration-300">Home</a>
+        <a href="about.html" class="text-white hover:text-blue-400 font-medium transition duration-300">About</a>
+        <a href="services.html" class="text-white hover:text-blue-400 font-medium transition duration-300">Services</a>
+        <a href="portfolio.html" class="text-white hover:text-blue-400 font-medium transition duration-300">Portfolio</a>
+        <a href="contact.html" class="text-white hover:text-blue-400 font-medium transition duration-300">Contact</a>
+        <a href="req.html" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition duration-300">Get Quote</a>
+      </nav>
+      
+      <!-- Hamburger Menu Button (Mobile only) -->
+      <div class="lg:hidden flex items-center">
+        <button id="hamburger" class="text-white focus:outline-none hover:text-blue-400 transition duration-300">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Slide-In Side Menu (Mobile only) -->
+  <div id="sideMenu" class="fixed top-0 right-0 h-full w-72 bg-white text-gray-900 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 lg:hidden">
+    <div class="flex justify-between items-center px-6 py-4 bg-blue-500">
+      <h2 class="text-xl font-bold text-white">Menu</h2>
+      <button id="closeBtn" class="text-white hover:text-gray-200 transition duration-300">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+    </div>
+    <ul class="mt-6 space-y-1">
+      <li><a href="index.html" class="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-500 border-l-4 border-transparent hover:border-blue-500 transition duration-300">Home</a></li>
+      <li><a href="about.html" class="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-500 border-l-4 border-transparent hover:border-blue-500 transition duration-300">About</a></li>
+      <li><a href="services.html" class="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-500 border-l-4 border-transparent hover:border-blue-500 transition duration-300">Services</a></li>
+      <li><a href="portfolio.html" class="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-500 border-l-4 border-transparent hover:border-blue-500 transition duration-300">Portfolio</a></li>
+      <li><a href="contact.html" class="block px-6 py-3 text-gray-800 hover:bg-blue-50 hover:text-blue-500 border-l-4 border-transparent hover:border-blue-500 transition duration-300">Contact</a></li>
+      <li><a href="req.html" class="block mx-6 mt-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-center transition duration-300">Request a Quote</a></li>
+    </ul>
+    <div class="absolute bottom-8 w-full px-6">
+      <div class="flex items-center justify-center space-x-4">
+        <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-blue-500 transition duration-300">
+          <i class="fab fa-pinterest text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Overlay when mobile menu is open -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden transition-opacity duration-300 opacity-0"></div>
+
+  <!-- Hero Section with Full-screen Slider -->
+  <section id="hero" class="hero-slider relative bg-cover bg-center text-white h-screen flex items-center justify-center" style="background-image: url('imag/int8.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="container mx-auto px-6 z-10 text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fadeIn" style="animation-delay: 0.3s">
+        Bring Your <span class="text-blue-400">Dream Home</span> to Life
+      </h2>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 animate-fadeIn" style="animation-delay: 0.6s">
+        Transforming spaces into beautiful and functional living areas that reflect your unique style and personality.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fadeIn" style="animation-delay: 0.9s">
+        <a href="portfolio.html" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition duration-300 transform hover:scale-105">
+          View Our Work
+        </a>
+        <a href="contact.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-800 text-white px-8 py-3 rounded-full font-medium transition duration-300 transform hover:scale-105">
+          Contact Us
+        </a>
+      </div>
+    </div>
+    
+    <!-- Slider Controls -->
+    <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-3">
+      <button class="slider-dot w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none slider-dot-active"></button>
+      <button class="slider-dot w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"></button>
+      <button class="slider-dot w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"></button>
+      <button class="slider-dot w-3 h-3 rounded-full bg-white bg-opacity-50 focus:outline-none"></button>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-10 right-10 animate-bounce hidden md:block">
+      <a href="#services" class="text-white flex flex-col items-center">
+        <span class="text-sm mb-2">Scroll</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Premium Services</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">We offer comprehensive interior design solutions tailored to transform your space into something extraordinary.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://www.pfeifferdesign.co.uk/wp-content/uploads/2017/11/St-Martines-Living-Room-1800x1200-NEW.jpg')"></div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+              <i class="fas fa-home text-blue-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Residential Design</h3>
+            <p class="text-gray-600 mb-4">Transform your home into a stylish and functional space that reflects your personality and meets your lifestyle needs.</p>
+            <a href="services.html" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700 transition duration-300">
+              Learn more
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/c9/3f/77/c93f77ae528ffc4e4d5719fd717949de.jpg')"></div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+              <i class="fas fa-building text-blue-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Commercial Spaces</h3>
+            <p class="text-gray-600 mb-4">Create productive and impressive commercial environments that enhance your brand image and boost employee productivity.</p>
+            <a href="services.html" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700 transition duration-300">
+              Learn more
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://i2.wp.com/www.weitkampinteriordesign.com/wp-content/uploads/2015/06/Stephanie-Weitkamp-Zionsville-Home-featured-e1467307598361.jpg?fit=1024%2C684&ssl=1')"></div>
+          <div class="p-6">
+            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+              <i class="fas fa-pencil-ruler text-blue-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Custom Furniture</h3>
+            <p class="text-gray-600 mb-4">Get unique, made-to-measure furniture pieces designed specifically for your space and requirements.</p>
+            <a href="services.html" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700 transition duration-300">
+              Learn more
+              <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="services.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition duration-300">
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Us Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+          <img src="logo.jpg" alt="About Janatha Decors" class="rounded-lg shadow-xl mx-auto">
+        </div>
+        <div class="w-full lg:w-1/2 lg:pl-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About Janatha Decors</h2>
+          <p class="text-gray-600 mb-6">With over 10 years of experience in the interior design industry, we've helped hundreds of clients transform their spaces into beautiful, functional environments.</p>
+          <p class="text-gray-600 mb-8">Our team of skilled designers and craftsmen work closely with each client to understand their unique needs and preferences, ensuring that every project is a true reflection of their personality and lifestyle.</p>
+          
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="flex items-start">
+              <div class="mr-4 text-blue-500">
+                <i class="fas fa-medal text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-1">Quality Design</h3>
+                <p class="text-gray-600 text-sm">Excellence in every detail</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="mr-4 text-blue-500">
+                <i class="fas fa-user-friends text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-1">Client Focus</h3>
+                <p class="text-gray-600 text-sm">Your vision is our priority</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="mr-4 text-blue-500">
+                <i class="fas fa-tools text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-1">Craftsmanship</h3>
+                <p class="text-gray-600 text-sm">Attention to every detail</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="mr-4 text-blue-500">
+                <i class="fas fa-lightbulb text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-1">Innovation</h3>
+                <p class="text-gray-600 text-sm">Fresh ideas and creativity</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="about.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition duration-300">
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Projects -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Featured Projects</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Explore some of our recent work and get inspired for your next interior design project.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="gallery-item rounded-lg overflow-hidden shadow-lg group">
+          <div class="relative">
+            <img src="https://th.bing.com/th/id/OIP._0bveOx22LADX-XgU8b8WQHaE8?rs=1&pid=ImgDetMain" alt="Modern Living Room" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition duration-300">
+              <h3 class="text-xl font-bold mb-2">Modern Living Room</h3>
+              <p class="text-sm">A contemporary design with comfort in mind</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="gallery-item rounded-lg overflow-hidden shadow-lg group">
+          <div class="relative">
+            <img src="https://media.designcafe.com/wp-content/uploads/2021/12/20173740/minimalist-modular-kitchen-with-loft.jpg" alt="Minimalist Kitchen" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition duration-300">
+              <h3 class="text-xl font-bold mb-2">Minimalist Kitchen</h3>
+              <p class="text-sm">Clean lines and functional elegance</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="gallery-item rounded-lg overflow-hidden shadow-lg group">
+          <div class="relative">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/7dd4a8158418227.638b23e0a7a63.jpg" alt="Luxury Bedroom" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition duration-300"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition duration-300">
+              <h3 class="text-xl font-bold mb-2">Luxury Bedroom</h3>
+              <p class="text-sm">Comfort meets sophistication</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="portfolio.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-medium transition duration-300">
+          View Full Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied clients.</p>
+      </div>
+      
+      <div class="relative">
+        <div class="testimonial-slider flex overflow-x-auto pb-8 space-x-6 scrollbar-hide">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-lg shadow-lg p-8 flex-shrink-0 w-full md:w-96">
+            <div class="flex items-center mb-6">
+              <div class="text-yellow-400 flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 italic">"Janatha Decors transformed our home into something we could only dream of. Their attention to detail and understanding of our needs was remarkable."</p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0"></div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                <p class="text-gray-600 text-sm">Residential Client</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-lg shadow-lg p-8 flex-shrink-0 w-full md:w-96">
+            <div class="flex items-center mb-6">
+              <div class="text-yellow-400 flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 italic">"Our office renovation was completed on time and within budget. The team was professional and the result has improved our company culture."</p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0"></div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Michael Chen</h4>
+                <p class="text-gray-600 text-sm">Business Owner</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-lg shadow-lg p-8 flex-shrink-0 w-full md:w-96">
+            <div class="flex items-center mb-6">
+              <div class="text-yellow-400 flex">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 italic">"The custom furniture pieces designed for our home are not only beautiful but incredibly functional. We couldn't be happier with the results."</p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0"></div>
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Emily & David Rodriguez</h4>
+                <p class="text-gray-600 text-sm">Custom Furniture Clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="flex justify-center mt-6 space-x-2">
+          <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-300 focus:outline-none testimonial-dot-active"></button>
+          <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-300 focus:outline-none"></button>
+          <button class="testimonial-dot w-3 h-3 rounded-full bg-blue-300 focus:outline-none"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action -->
+  <section class="py-20 bg-blue-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Space?</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-10">Let's work together to create the perfect interior that reflects your style and meets your needs.</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a href="req.html" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition duration-300">
+          Request a Free Quote
+        </a>
+        <a href="contact.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-medium transition duration-300">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Janatha Decors</h3>
+          <p class="text-gray-400 mb-6">Transforming spaces into beautiful and functional living areas since 2015.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+            <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+            <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+            <li><a href="careers.html" class="text-gray-400 hover:text-white transition duration-300">Careers</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h3 class="text-lg font-bold mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Residential Design</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Commercial Spaces</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Custom Furniture</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Space Planning</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition duration-300">Color Consultation</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-bold mb-6">Contact Us</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+              <span>Door No: 1-15, Arjun Nagar Center, Indrapalem, Kakinada</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3"></i>
+              <span>9441813328,9248372592</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3"></i>
+              <span>Janathadecors@gmail.com</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-3"></i>
+              <span>Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Newsletter -->
+      <div class="border-t border-gray-800 pt-8 pb-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-lg font-bold mb-2">Subscribe to Our Newsletter</h3>
+            <p class="text-gray-400">Stay updated with our latest trends and projects</p>
+          </div>
+          <div class="w-full md:w-auto">
+            <form class="flex flex-col sm:flex-row">
+              <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 w-full sm:w-auto mb-2 sm:mb-0">
+              <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition duration-300">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+        <p class="text-gray-400">&copy; 2025 Janatha Decors. All rights reserved.</p>
+        <div class="mt-4">
+          <a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300 mx-2">Privacy Policy</a>
+          <span class="text-gray-600">|</span>
+          <a href="terms.html" class="text-gray-400 hover:text-white transition duration-300 mx-2">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition duration-300 opacity-0 invisible">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // Hero Slider
+    const heroSlider = document.getElementById('hero');
+    const sliderDots = document.querySelectorAll('.slider-dot');
+    const images = ['imag/int8.jpg', 'imag/int2.jpg', 'imag/int3.jpg', 'imag/int4.jpg'];
+    let currentSlide = 0;
+    
+    function changeSlide(index) {
+      heroSlider.style.backgroundImage = `url('${images[index]}')`;
+      
+      // Update dots
+      sliderDots.forEach(dot => dot.classList.remove('slider-dot-active'));
+      sliderDots[index].classList.add('slider-dot-active');
+      
+      currentSlide = index;
+    }
+    
+    sliderDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => changeSlide(index));
+    });
+    
+    // Auto-rotate slides
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % images.length;
+      changeSlide(currentSlide);
+    }, 5000);
+    
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('overlay');
+    
+    hamburger.addEventListener('click', () => {
+      sideMenu.classList.remove('translate-x-full');
+      overlay.classList.remove('hidden');
+      setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+      }, 10);
+    });
+    
+    function closeMenu() {
+      overlay.classList.add('opacity-0');
+      setTimeout(() => {
+        sideMenu.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+      }, 300);
+    }
+    
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    
+    // Header Background on Scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('bg-white', 'shadow-md');
+        header.classList.remove('bg-transparent');
+        
+        // Change text color on scroll
+        const navLinks = header.querySelectorAll('nav a:not(.bg-blue-500)');
+        navLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-gray-800');
+        });
+        
+        // Change logo color
+        const logo = header.querySelector('h1');
+        logo.classList.remove('text-white');
+        logo.classList.add('text-gray-800');
+        
+        // Change hamburger color
+        if (hamburger) {
+          hamburger.classList.remove('text-white');
+          hamburger.classList.add('text-gray-800');
+        }
+      } else {
+        header.classList.remove('bg-white', 'shadow-md');
+        header.classList.add('bg-transparent');
+        
+        // Revert text color
+        const navLinks = header.querySelectorAll('nav a:not(.bg-blue-500)');
+        navLinks.forEach(link => {
+          link.classList.add('text-white');
+          link.classList.remove('text-gray-800');
+        });
+        
+        // Revert logo color
+        const logo = header.querySelector('h1');
+        logo.classList.add('text-white');
+        logo.classList.remove('text-gray-800');
+        
+        // Revert hamburger color
+        if (hamburger) {
+          hamburger.classList.add('text-white');
+          hamburger.classList.remove('text-gray-800');
+        }
+      }
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Animation on Scroll (Basic implementation)
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.service-card, .gallery-item');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

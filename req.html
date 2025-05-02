@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a Quote - Janatha Decors</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .blur-bg {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(45deg, #3b82f6, #1e40af);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+    
+    .input-focus {
+      transition: all 0.3s ease;
+    }
+    
+    .input-focus:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    
+    .checkbox-custom {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-gray-800 overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="fixed w-full bg-white/90 blur-bg shadow-sm z-50">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <h1 class="text-3xl font-bold text-gradient">Janatha Decors</h1>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="text-blue-900 hover:text-blue-600 font-medium relative group">
+          Home
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+      </a>
+        <a href="about.html" class="text-blue-900 hover:text-blue-600 font-medium relative group">
+          About
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="services.html" class="text-blue-900 hover:text-blue-600 font-medium relative group">
+          Services
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="portfolio.html" class="text-blue-900 hover:text-blue-600 font-medium relative group">
+          Portfolio
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="contact.html" class="text-blue-900 hover:text-blue-600 font-medium relative group">
+          Contact
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="req.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-300 ml-4">Request a Quote</a>
+      </nav>
+
+      <!-- Hamburger Menu Button (Mobile only) -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburger" class="text-blue-900 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slide-In Side Menu (Mobile only) -->
+  <div id="sideMenu" class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-all duration-300 z-50 md:hidden">
+    <div class="flex justify-between items-center p-6 border-b">
+      <h2 class="text-xl font-bold text-blue-900">Menu</h2>
+      <span id="closeBtn" class="text-blue-900 cursor-pointer">
+        <i class="fas fa-times text-2xl"></i>
+      </span>
+    </div>
+    <ul class="p-6 space-y-6">
+      <li><a href="about.html" class="block text-blue-900 hover:text-blue-600 font-medium">About</a></li>
+      <li><a href="services.html" class="block text-blue-900 hover:text-blue-600 font-medium">Services</a></li>
+      <li><a href="portfolio.html" class="block text-blue-900 hover:text-blue-600 font-medium">Portfolio</a></li>
+      <li><a href="contact.html" class="block text-blue-900 hover:text-blue-600 font-medium">Contact</a></li>
+      <li class="pt-4">
+        <a href="req.html" class="block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all duration-300">Request a Quote</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl font-bold text-blue-900 leading-tight mb-6">Get a <span class="text-gradient">Personalized Quote</span></h1>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Tell us about your project, and we'll provide you with a customized quote tailored to your specific needs and vision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Form Section -->
+  <section class="py-16 -mt-10">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="h-3 bg-blue-600"></div>
+          <form class="p-8">
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6">Personal Information</h3>
+                
+                <div class="mb-5">
+                  <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                  <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" placeholder="John Doe" required>
+                </div>
+                
+                <div class="mb-5">
+                  <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="mb-5">
+                  <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" placeholder="(123) 456-7890" required>
+                </div>
+                
+                <div class="mb-5">
+                  <label for="address" class="block text-gray-700 font-medium mb-2">Address (Optional)</label>
+                  <input type="text" id="address" name="address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" placeholder="123 Main Street, City">
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-2xl font-bold text-blue-900 mb-6">Project Details</h3>
+                
+                <div class="mb-5">
+                  <label for="project-type" class="block text-gray-700 font-medium mb-2">Project Type</label>
+                  <select id="project-type" name="project-type" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" required>
+                    <option value="" disabled selected>Select your project type</option>
+                    <option value="residential">Residential Design</option>
+                    <option value="commercial">Commercial Design</option>
+                    <option value="consultation">Consultation Only</option>
+                    <option value="furniture">Custom Furniture</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div class="mb-5">
+                  <label for="budget" class="block text-gray-700 font-medium mb-2">Estimated Budget</label>
+                  <select id="budget" name="budget" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus">
+                    <option value="" disabled selected>Select your budget range</option>
+                    <option value="under-5000">Under ₹5,000</option>
+                    <option value="5000-10000">₹5,000 - ₹10,000</option>
+                    <option value="10000-25000">₹10,000 - ₹25,000</option>
+                    <option value="25000-50000">₹25,000 - ₹50,000</option>
+                    <option value="50000-100000">₹50,000 - ₹1,00,000</option>
+                    <option value="above-100000">Above ₹1,00,000</option>
+                  </select>
+                </div>
+                
+                <div class="mb-5">
+                  <label for="timeline" class="block text-gray-700 font-medium mb-2">Preferred Timeline</label>
+                  <select id="timeline" name="timeline" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus">
+                    <option value="" disabled selected>Select your timeline</option>
+                    <option value="urgent">Urgent (ASAP)</option>
+                    <option value="1month">Within 1 month</option>
+                    <option value="3months">1-3 months</option>
+                    <option value="6months">3-6 months</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </div>
+                
+                <div class="mb-5">
+                  <label class="block text-gray-700 font-medium mb-2">Services Required (Select all that apply)</label>
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <input type="checkbox" id="space-planning" name="services[]" value="space-planning" class="checkbox-custom mr-3">
+                      <label for="space-planning" class="cursor-pointer">Space Planning</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input type="checkbox" id="interior-design" name="services[]" value="interior-design" class="checkbox-custom mr-3">
+                      <label for="interior-design" class="cursor-pointer">Interior Design</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input type="checkbox" id="furniture-selection" name="services[]" value="furniture-selection" class="checkbox-custom mr-3">
+                      <label for="furniture-selection" class="cursor-pointer">Furniture Selection</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input type="checkbox" id="custom-furniture" name="services[]" value="custom-furniture" class="checkbox-custom mr-3">
+                      <label for="custom-furniture" class="cursor-pointer">Custom Furniture</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-8">
+              <label for="project-description" class="block text-gray-700 font-medium mb-2">Project Description</label>
+              <textarea id="project-description" name="project-description" rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus" placeholder="Please describe your project in detail, including your vision, requirements, and any specific ideas you have." required></textarea>
+            </div>
+            
+            <div class="mb-8">
+              <label class="block text-gray-700 font-medium mb-2">How did you hear about us?</label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="flex items-center">
+                  <input type="radio" id="source-google" name="source" value="google" class="mr-3">
+                  <label for="source-google">Google</label>
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" id="source-social" name="source" value="social-media" class="mr-3">
+                  <label for="source-social">Social Media</label>
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" id="source-referral" name="source" value="referral" class="mr-3">
+                  <label for="source-referral">Referral</label>
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" id="source-other" name="source" value="other" class="mr-3">
+                  <label for="source-other">Other</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-start mb-8">
+              <input type="checkbox" id="terms" name="terms" class="checkbox-custom mt-1 mr-3" required>
+              <label for="terms" class="text-gray-600">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms and Conditions</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.</label>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-lg font-medium">
+                Submit Request
+                <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-blue-900 mb-4">Our Quote Process</h2>
+        <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600">What to expect after submitting your quote request</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center relative card-hover">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto absolute -top-6 left-1/2 transform -translate-x-1/2">1</div>
+          <div class="pt-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-4 mt-2">Submit Request</h3>
+            <p class="text-gray-600">Fill out the form with your project details and requirements.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center relative card-hover">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto absolute -top-6 left-1/2 transform -translate-x-1/2">2</div>
+          <div class="pt-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-4 mt-2">Initial Review</h3>
+            <p class="text-gray-600">Our team reviews your request and prepares for a consultation.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center relative card-hover">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto absolute -top-6 left-1/2 transform -translate-x-1/2">3</div>
+          <div class="pt-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-4 mt-2">Consultation</h3>
+            <p class="text-gray-600">We'll discuss your project in detail to understand your vision.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center relative card-hover">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto absolute -top-6 left-1/2 transform -translate-x-1/2">4</div>
+          <div class="pt-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-4 mt-2">Detailed Quote</h3>
+            <p class="text-gray-600">Receive a comprehensive quote tailored to your specific needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-blue-900 mb-4">Frequently Asked Questions</h2>
+        <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600">Common questions about our quote process</p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-2">How long does it take to receive a quote?</h3>
+            <p class="text-gray-600">We typically provide quotes within 2-3 business days after the initial consultation. For complex projects, it may take up to 5 business days to ensure accuracy.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-2">Is there a fee for getting a quote?</h3>
+            <p class="text-gray-600">No, we provide quotes free of charge. We believe in transparent pricing and helping you understand the investment required for your project before any commitment.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-2">What information do I need to provide for an accurate quote?</h3>
+            <p class="text-gray-600">The more details you provide, the more accurate your quote will be. Project type, dimensions, specific requirements, timeline, and budget range are especially helpful. Photos of the space and inspiration images are also valuable.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-2">How detailed is the quote I'll receive?</h3>
+            <p class="text-gray-600">Our quotes include a breakdown of services, materials, estimated timeline, and payment terms. We strive to be transparent and comprehensive so you know exactly what to expect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Begin Your Design Journey?</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Have questions before submitting a quote request? We're happy to help!</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium">Contact Us</a>
+        <a href="portfolio.html" class="bg-transparent hover:bg-blue-700 text-white border border-white px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">Janatha Decors</h3>
+          <p class="mb-4">Creating spaces that inspire, comfort, and delight since 2010.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+              <i class="fab fa-pinterest"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition-all duration-300">About Us</a></li>
+            <li><a href="services.html" class="hover:text-white transition-all duration-300">Services</a></li>
+            <li><a href="portfolio.html" class="hover:text-white transition-all duration-300">Portfolio</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-all duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="services.html#residential" class="hover:text-white transition-all duration-300">Residential Design</a></li>
+            <li><a href="services.html#commercial" class="hover:text-white transition-all duration-300">Commercial Design</a></li>
+            <li><a href="services.html#consultation" class="hover:text-white transition-all duration-300">Consultation</a></li>
+            <li><a href="services.html#furniture" class="hover:text-white transition-all duration-300">Custom Furniture</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Contact Info</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-500"></i>
+              <span>Door No: 1-15, Arjun Nagar Center, Indrapalem, Kakinada</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-3 text-blue-500"></i>
+              <span>9441813328, 9248372592</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-blue-500"></i>
+              <span>Janathadecors@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-gray-800 text-center">
+        <p>&copy; 2025 Janatha Decors. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform scale-0 hover:bg-blue-700">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    hamburger.addEventListener('click', () => {
+      sideMenu.classList.toggle('translate-x-full');
+      sideMenu.classList.toggle('translate-x-0');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sideMenu.classList.add('translate-x-full');
+      sideMenu.classList.remove('translate-x-0');
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.remove('scale-0');
+        backToTopBtn.classList.add('scale-100');
+      } else {
+        backToTopBtn.classList.remove('scale-100');
+        backToTopBtn.classList.add('scale-0');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
